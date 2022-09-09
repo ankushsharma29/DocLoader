@@ -90,7 +90,8 @@ public class SDKClient {
             ClusterOptions cluster_options;
             if(this.master.memcached_port.equals("11207")) {
             	if (this.sdk_compression) {
-            		cluster_options = ClusterOptions.clusterOptions(master.rest_username, master.rest_password).environment(env1);
+                    System.out.println("calling env3 thru 1");
+            		cluster_options = ClusterOptions.clusterOptions(master.rest_username, master.rest_password).environment(env3);
             	}
             	else {
             		System.out.println("calling env3");
@@ -99,8 +100,10 @@ public class SDKClient {
             }
             else {
             	if (this.sdk_compression)
-            		cluster_options = ClusterOptions.clusterOptions(master.rest_username, master.rest_password).environment(env2);
+                    System.out.println("calling env2");
+            		cluster_options = ClusterOptions.clusterOptions(master.rest_username, master.rest_password).environment(env4);
             	else
+                    System.out.println("calling env4");
             		cluster_options = ClusterOptions.clusterOptions(master.rest_username, master.rest_password).environment(env4);
             	}
             this.cluster = Cluster.connect(master.ip, cluster_options);
